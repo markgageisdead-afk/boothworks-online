@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>San Antonio Photo Booth Quotes | BoothWorks</title>
+  <meta name="description" content="Get photo booth quotes for a locked San Antonio date. Local operators reply with real availability. BoothWorks is a matcher, not a booth company." />
+  <link rel="canonical" href="https://boothworks.online/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #12151a;
+      --muted: #5c6570;
+      --paper: #f7f4ee;
+      --card: #fffdf8;
+      --line: rgba(18, 21, 26, 0.12);
+      --accent: #1f6b5a;
+      --sans: "IBM Plex Sans", system-ui, sans-serif;
+      --serif: "Fraunces", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: radial-gradient(900px 420px at 90% -10%, #e7f0ec 0%, transparent 55%), var(--paper);
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 32px 20px 72px; }
+    .brand {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 0 10px;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 6vw, 52px);
+      line-height: 1.05;
+      margin: 0 0 12px;
+    }
+    .lede { color: var(--muted); max-width: 46ch; margin: 0 0 28px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 16px 40px rgba(18, 21, 26, 0.06);
+    }
+    form { display: grid; gap: 12px; }
+    label { display: grid; gap: 4px; font-size: 13px; font-weight: 600; }
+    input, select, button {
+      font: inherit;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      padding: 11px 12px;
+      background: #fff;
+    }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    button {
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 600;
+      border: 0;
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.55; }
+    .ok {
+      background: #e7f0ec;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 8px;
+    }
+    .err { color: #9b2c13; font-size: 14px; }
+    .aside h2 { font-family: var(--serif); font-size: 22px; margin: 0 0 8px; }
+    .aside ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .aside li { margin-bottom: 8px; }
+    .fine { font-size: 12px; color: var(--muted); margin-top: 10px; }
+    nav { margin: 28px 0 0; font-size: 13px; }
+    nav a { color: var(--accent); }
+    iframe.hook { position: absolute; width: 0; height: 0; border: 0; }
+    @media (max-width: 800px) {
+      .grid, .row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <iframe class="hook" name="bw-hook" title="Form submit"></iframe>
+  <div class="wrap">
+    <p class="brand">BoothWorks · San Antonio</p>
+    <h1>Get photo booth quotes for your date.</h1>
+    <p class="lede">Locked date, venue, and guest count. Local San Antonio operators get the request — you hear back with real availability, not a marketplace paywall.</p>
+    <div class="grid">
+      <section class="card">
+        <div class="ok" id="thanks" hidden>
+          <strong>Request in.</strong>
+          <div>A local booth company will follow up if the date is open.</div>
+        </div>
+        <p class="err" id="err" hidden></p>
+        <form id="quote" action="https://platformproxy.gamutagents.com/v1/hooks/whep_d69878aa-55e0-4a1e-8a5c-0d7fbf839a5b" method="post" target="bw-hook">
+          <input type="hidden" name="source" value="owned-form" />
+          <label>Your name <input name="name" required autocomplete="name" /></label>
+          <div class="row">
+            <label>Email <input type="email" name="email" required autocomplete="email" /></label>
+            <label>Phone <input name="phone" required autocomplete="tel" /></label>
+          </div>
+          <label>Confirmed event date and venue
+            <div class="row">
+              <input required type="date" name="eventDate" />
+              <input required name="venue" placeholder="Venue name" />
+            </div>
+          </label>
+          <div class="row">
+            <label>Guest count <input required type="number" min="1" name="guestCount" /></label>
+            <label>ZIP <input name="zip" value="78205" /></label>
+          </div>
+          <label>Event type
+            <select name="eventType">
+              <option>Wedding</option>
+              <option>Quinceañera</option>
+              <option>Corporate</option>
+              <option>Milestone Birthday</option>
+            </select>
+          </label>
+          <label>Digital sharing, prints, or 360 video?
+            <select name="experience">
+              <option value="instant digital sharing">Instant digital sharing</option>
+              <option value="luxury physical prints" selected>Luxury physical prints</option>
+              <option value="360 video activation">360 video activation</option>
+            </select>
+          </label>
+          <label>Budget
+            <select name="budgetTier">
+              <option>Essential Digital</option>
+              <option selected>Complete Print Experience</option>
+              <option>Luxury / Multi-Activation</option>
+            </select>
+          </label>
+          <button type="submit" id="go">Get quotes</button>
+          <p class="fine">BoothWorks matches requests to San Antonio photo booth companies. Not a booth rental company.</p>
+        </form>
+      </section>
+      <aside class="card aside">
+        <h2>What we need</h2>
+        <ul>
+          <li>A locked date — no “sometime in fall.”</li>
+          <li>Venue or neighborhood so operators can price travel.</li>
+          <li>Guest count so they send the right booth, not a guess.</li>
+        </ul>
+        <nav>
+          <a href="/san-antonio-wedding-photo-booth.html">Weddings</a>
+          ·
+          <a href="/quinceanera-photo-booth-san-antonio.html">Quinceañeras</a>
+        </nav>
+      </aside>
+    </div>
+  </div>
+  <script>
+    document.getElementById('quote').addEventListener('submit', function () {
+      document.getElementById('go').disabled = true;
+      document.getElementById('thanks').hidden = false;
+      document.getElementById('err').hidden = true;
+    });
+  </script>
+</body>
+</html>
